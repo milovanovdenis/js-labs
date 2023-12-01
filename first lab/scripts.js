@@ -8,25 +8,6 @@ function calculate(){
     first_number = Number(document.getElementsByTagName("input")[0].value)
     second_number = Number(document.getElementsByTagName("input")[1].value)
 
-    // из-за запрета на if, используем switch - case (аналогом в питоне является match - case)
-    /*switch (operator) {
-        case "+":
-            result = first_number + second_number
-            break
-        case "-":
-            result = first_number - second_number
-            break
-        case "*":
-            result = first_number * second_number
-            break
-        case "/":
-            result = first_number / second_number
-            break
-        case "%":
-            result = first_number % second_number
-            break
-    }*/
-
     // проводим расчёты и заменяем значение поля "ответ" на полученный результат
     document.getElementById("result").innerHTML = eval(expression);
 }
