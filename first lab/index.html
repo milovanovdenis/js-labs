@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>калькулятор</title>
+</head>
+<body>
+    <div style="position: absolute; left: 40%; border: 1px solid black;">
+        <!--используем input для получения ввода от пользователя, при изменении содержания формы ввода вызываем функцию,
+        которая изменяет строку выражения (это сделано просто для приличия и потом пригодится при подготовке отчёта)-->
+        <input type="number" minlength="1" oninput="create_expression()" pattern="[0-9]" placeholder="введите первый операнд"></input> <br>
+
+        <!-- при нажатии кнопки вызываем ту же функцию, что и при изменении формы, а также изменяем переменную operator (она находится в файле scripts.js)-->
+        <button onclick="operator='+'; create_expression()">+</button>
+        <button onclick="operator='-'; create_expression()">-</button>
+        <button onclick="operator='*'; create_expression()">*</button>
+        <button onclick="operator='/'; create_expression()">/</button>
+        <button onclick="operator='%'; create_expression()">%</button> <br>
+
+        <input type="number" oninput="create_expression()" minlength="1" pattern="[0-9]" placeholder="введите второй операнд"></input> <br>
+
+        <!--эта кнопка вызывает основную функцию, которая призводит расчёты и заменяет значение в поле "ответ"-->
+        <button onclick="calculate()">=</button> <br>
+
+        <!--формы для ответов, в которые, при выполнении программы, будут заноситься данные-->
+        <a>выражение:<br>   <output id="math_expression">0 + 0</output></a> <br>
+        <a>ответ:<br>   <output id="result">0</output></a>
+    </div>
+</body>
+</html>
+
+<script src="scripts.js"></script>
