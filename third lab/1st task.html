@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    var n = prompt("введите количество символов");
+    var listOfNumbers = prompt("введите числа через пробел").split(" ");
+    var k = 0;
+    var listOfOddNumbers = [];
+
+    function main () {
+        for (let i=0; i<n; i++) {
+            if (listOfNumbers[i] % 2) {
+                listOfOddNumbers.push(listOfNumbers[i]);
+                k++;
+            };
+        };
+        return;
+    };
+
+    if (listOfNumbers.length == n) {
+        main();
+        alert(listOfOddNumbers);
+        alert("число нечётных символов: " + k);
+    } else {
+        alert("учись считать, бездарь");
+    };
+
+</script>
