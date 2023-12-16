@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    var x = prompt("введите x");
+    var a = 2.7;
+    var b = 3.59;
+    var y;
+    if (x > 2) {
+        y = Math.cos(a * x ** 2) ** 3
+    } else if (x <= -1) {
+        y = Math.sin(x) ** 2 + b / x
+    } else if (-1 < x <= 2) {
+        y = -2 - x ** 2
+    };
+    alert(y);
+</script>
