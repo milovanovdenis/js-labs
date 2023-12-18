@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    var list = prompt("введите массив через пробел").split(" ").map(Number);
+    var n = list[0];
+    for (let i=0; i<list.length; i++) {
+        list[i] += !(list[i] % 2) * n
+    };
+    alert(list);
+</script>
