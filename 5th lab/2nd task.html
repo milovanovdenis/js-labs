@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    var m = prompt("введите количество строк матрицы")
+    var n = prompt("введите количество столбцов матрицы")
+    var matrix = []
+    for (let i=0; i<m; i++) {
+        matrix.push(prompt("введите строку матрицы").split(" "))
+    }
+
+    alert("исходная матрица:\n" + matrix.map((x) => x.join(" ") + "\n").join(" "))
+
+    for(let i=m/2; i<m; i++) {
+        for (let j=0; j<n/2; j++) {
+            c = matrix[i-m/2][j+n/2]
+            matrix[i-m/2][j+n/2] = matrix[i][j]
+            matrix[i][j] = c
+        }
+    }
+    alert("итоговая матрица:\n" + matrix.map((x) => x.join(" ") + "\n").join(" "))
+</script>

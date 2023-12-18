@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    var m = prompt("введите количество строк");
+    var kColumnNumbers = [];
+    var matrix = [];
+    for (let i=0; i<m; i++) {
+        matrix.push(prompt("введите строку матрицы").split(" "));
+    }
+    var k = prompt("введите номер столбца").split(" ");
+
+    for (i of matrix) {
+        kColumnNumbers.push(i[k-1]);
+    }
+
+    alert(kColumnNumbers);
+</script>

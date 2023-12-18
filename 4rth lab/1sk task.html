@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    var list = prompt("введите массив через пробел").split(" ");
+    var new_list = [];
+    
+    for (let i=0; i<list.length; i++) {
+        if (list[i] % 2) {
+            new_list.push(list[i]);
+            list.splice(i, 1);
+        } ;
+    };
+    alert(list.concat(new_list.reverse()));
+</script>
