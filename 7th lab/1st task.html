@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas width="100%", height="100%", id="canvas"></canvas>
+</body>
+</html>
+
+<script>
+    //temporary function
+    function showMatrix (matrix) {
+        let line = ""
+        for (i of matrix) {
+            line += i + "\n"
+        }
+        alert(line)
+    }
+
+
+    var canvas = document.getElementById("canvas");
+    var flag = true;
+    var numbers = [[0, 4, 4, 2],
+                   [2, 2, 4, 4],
+                   [2, 2, 2, 0],
+                   [2, 2, 0, 2]];
+
+    function randomNumber (min, max) {
+        return(Math.floor(Math.random() * (max - min) + min));
+    }
+
+    function searchEmptyCells () {
+        let cells = [];
+        for (let i=0; i<4; i++) {
+            for (let j=0; j<4; j++) {
+                if (numbers[i][j] == 0) {
+                    cells.push([i, j]);
+                };
+            };
+        };
+        return (cells);
+    };
+
+    function checkEmptyCells (cells) {
+        if (cells.length == 0) {
+            flag = false;
+        };
+    }
+
+    function insertNumber (cells) {
+        let [i, j] = cells[randomNumber(0, cells.length)];
+        numbers[i][j] = 2;
+    };    
+
+    function moveDown () {        
+        for (let i=3; i>0; i--) {
+            for (let j=0; j<4; j++) {
+                if (numbers[i][j] == numbers[i-1][j]) {
+                    numbers[i][j] += numbers[i-1][j]
+                    numbers[i-1][j] = 0
+                }
+            }
+        }
+        
+        for (let i=0; i<3; i++) {
+            for (let j=0; j<4; j++) {
+                if (numbers[i+1][j] == 0) {
+                    numbers[i+1][j] = numbers[i][j]
+                    numbers[i][j] = 0
+                }
+            }
+        }
+
+        for (let i=3; i>0; i--) {
+            for (let j=0; j<4; j++) {
+                if (numbers[i][j] == 0) {
+                    numbers[i][j] = numbers[i-1][j]
+                    numbers[i-1][j] = 0
+                }
+            }
+        }
+    }
+
+
+    while (flag) {
+        let cells = searchEmptyCells();
+        alert(numbers);
+        insertNumber(cells);
+        checkEmptyCells(searchEmptyCells());
+    };
+    alert("game over");
+
+
+    // ctx = canvas.getContext("2d")
+    // ctx.strokeRect(0, 0, canvas.width, canvas.height)
+</script>
